@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Premium Photography Studio | Visual Storytelling</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',sans-serif;color:#333}
+
+/* NAV */
+nav{
+position:fixed;width:100%;
+background:rgba(0,0,0,.9);
+padding:1rem 5%;
+z-index:1000
+}
+nav .container{
+display:flex;justify-content:space-between;align-items:center;
+max-width:1400px;margin:auto
+}
+.logo{color:#fff;font-size:1.5rem;font-weight:bold}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{color:#fff;text-decoration:none}
+.menu-toggle{display:none;flex-direction:column;cursor:pointer}
+.menu-toggle span{height:3px;width:25px;background:#fff;margin:3px 0}
+
+/* HERO */
+.hero{
+height:100vh;
+background:
+linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),
+url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80");
+background-size:cover;
+background-position:center;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+color:#fff
+}
+.hero h1{font-size:3.5rem}
+.hero p{margin:1rem 0;font-size:1.2rem}
+.btn{
+padding:1rem 2rem;
+border:2px solid #d4a574;
+background:#d4a574;
+color:#fff;
+text-decoration:none;
+margin:0.5rem;
+display:inline-block
+}
+.btn:hover{background:transparent}
+
+/* ABOUT */
+.about{
+padding:6rem 5%;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:3rem;
+max-width:1400px;
+margin:auto
+}
+.about img{width:100%;border-radius:5px}
+.about h2{font-size:2.5rem}
+
+/* PORTFOLIO */
+.portfolio{padding:6rem 5%;background:#f8f9fa}
+.portfolio h2{text-align:center;margin-bottom:3rem}
+.filter-buttons{text-align:center;margin-bottom:2rem}
+.filter-btn{
+padding:.7rem 1.5rem;
+border:2px solid #ddd;
+background:#fff;
+cursor:pointer;
+margin:.3rem
+}
+.filter-btn.active{background:#d4a574;color:#fff}
+.portfolio-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:2rem;
+max-width:1400px;
+margin:auto
+}
+.portfolio-item{
+position:relative;
+height:350px;
+overflow:hidden;
+border-radius:5px
+}
+.portfolio-item img{
+width:100%;
+height:100%;
+object-fit:cover
+}
+.overlay{
+position:absolute;
+inset:0;
+background:rgba(212,165,116,.9);
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+color:#fff;
+opacity:0;
+transition:.3s
+}
+.portfolio-item:hover .overlay{opacity:1}
+
+/* SERVICES */
+.services{padding:6rem 5%;max-width:1400px;margin:auto}
+.services-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:2rem
+}
+.service-card{
+background:#fff;
+padding:2rem;
+box-shadow:0 5px 20px rgba(0,0,0,.1);
+text-align:center
+}
+.price{font-size:2rem;color:#d4a574}
+
+/* FOOTER */
+footer{
+background:#222;
+color:#fff;
+text-align:center;
+padding:2rem
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+.menu-toggle{display:flex}
+.nav-links{
+position:fixed;
+top:70px;
+left:-100%;
+width:100%;
+flex-direction:column;
+background:#000;
+padding:2rem;
+transition:.3s
+}
+.nav-links.active{left:0}
+.about{grid-template-columns:1fr}
+.hero h1{font-size:2.2rem}
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav>
+<div class="container">
+<div class="logo">LENS&CO</div>
+<div class="menu-toggle" id="menu">
+<span></span><span></span><span></span>
+</div>
+<ul class="nav-links" id="nav">
+<li><a href="#home">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#portfolio">Portfolio</a></li>
+<li><a href="#services">Services</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+<div>
+<h1>CAPTURE THE MOMENT</h1>
+<p>Professional Photography That Tells Your Story</p>
+<a href="#portfolio" class="btn">View Portfolio</a>
+</div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+<img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=800&q=80">
+<div>
+<h2>Meet Your Photographer</h2>
+<p>10+ years experience capturing weddings, portraits & commercial stories.</p>
+</div>
+</section>
+
+<!-- PORTFOLIO -->
+<section class="portfolio" id="portfolio">
+<h2>Our Work</h2>
+
+<div class="filter-buttons">
+<button class="filter-btn active" data-filter="all">All</button>
+<button class="filter-btn" data-filter="wedding">Wedding</button>
+<button class="filter-btn" data-filter="portrait">Portrait</button>
+<button class="filter-btn" data-filter="event">Event</button>
+</div>
+
+<div class="portfolio-grid">
+
+<div class="portfolio-item" data-cat="wedding">
+<img src="https://images.unsplash.com/photo-1529634806980-85c3dd6d34ac?auto=format&fit=crop&w=800&q=80">
+<div class="overlay"><h3>Wedding</h3></div>
+</div>
+
+<div class="portfolio-item" data-cat="portrait">
+<img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=800&q=80">
+<div class="overlay"><h3>Portrait</h3></div>
+</div>
+
+<div class="portfolio-item" data-cat="event">
+<img src="https://images.unsplash.com/photo-1515165562835-c4c6b7a6c01b?auto=format&fit=crop&w=800&q=80">
+<div class="overlay"><h3>Event</h3></div>
+</div>
+
+</div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+<h2>Services</h2>
+<div class="services-grid">
+
+<div class="service-card">
+<h3>Wedding</h3>
+<div class="price">$2500</div>
+<p>Full day coverage</p>
+</div>
+
+<div class="service-card">
+<h3>Portrait</h3>
+<div class="price">$400</div>
+<p>Studio & outdoor</p>
+</div>
+
+<div class="service-card">
+<h3>Commercial</h3>
+<div class="price">$1800</div>
+<p>Brand shoots</p>
+</div>
+
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer id="contact">
+<p>© 2026 Lens&Co Photography</p>
+<p>hello@lensco.com</p>
+</footer>
+
+<script>
+const menu=document.getElementById("menu");
+const nav=document.getElementById("nav");
+menu.onclick=()=>nav.classList.toggle("active");
+
+const btns=document.querySelectorAll(".filter-btn");
+const items=document.querySelectorAll(".portfolio-item");
+
+btns.forEach(btn=>{
+btn.onclick=()=>{
+btns.forEach(b=>b.classList.remove("active"));
+btn.classList.add("active");
+const f=btn.dataset.filter;
+items.forEach(i=>{
+i.style.display=(f==="all"||i.dataset.cat===f)?"block":"none";
+});
+};
+});
+</script>
+
+</body>
+</html>
